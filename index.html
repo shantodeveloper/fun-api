@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>fun bord</title>
+
+</head>
+<body>
+    <div class="container">
+        <h1>Take A Class : <span id="active">Learn quran</span></h1>
+        <h2>Type : <span id="type">book of quran</span></h2>
+        <center><button id="btn" type="button">Bored</button></center>
+
+
+
+    </div>
+
+    <script>
+        async function bored() {
+            const res = await fetch('https://www.boredapi.com/api/activity/')
+            const data = await res.json()
+            console.log(data)
+
+            document.getElementById('active').innerHTML=data.activity
+
+            document.getElementById('type').innerHTML=data.type
+            
+        }
+     
+        document.getElementById('btn').addEventListener('click', function () {
+          
+          location.reload()
+
+        })
+        bored()
+    </script>
+</body>
+</html>
